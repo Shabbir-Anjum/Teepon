@@ -2,7 +2,44 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+#### Move to the frontend directory
+```bash
+  cd frontend
+```
+
+#### Install modules
+```bash
+  npm install && npm run build
+```
+
+
+Current port mapping: 
+| Folder        | Port | Deployed                  |
+|---------------|------|---------------------------|
+| backend       | 5001 | https://teepon.tech/      |
+| Socket_Server | 5000 | https://teepon.site/      |
+
+#### Next, you need to change all environment keys : 
+```bash
+  cp .env.example .env
+  vi .env
+```
+- Change `NEXT_PUBLIC_SERVER_URL`=http://localhost:5001
+- To set up all the other env keys in this folder, we should provide a complete tutorial. [You can find the video here](https://youtu.be/9jo51nJrO0k?si=n-9a3vazgX8zm25q)
+
+#### To set up instant messages:
+
+You can use our socket server if you wish, but if you want to use your own socket server, follow the instructions: 
+
+```bash
+  vi services/socketService.js
+```
+Change somewhere near line 9 : 
+|            Before change            |              After change             |
+|-------------------------------------|---------------------------------------|
+| socket = io('https://teepon.site'); | socket = io('http://localhost:5000'); | 
+
+#### Run the development server:
 
 ```bash
 npm run dev
