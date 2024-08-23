@@ -120,6 +120,7 @@ const Home = () => {
 
 
   const sendtoken = async (currentuser, accessToken) => {
+    console.log('error',currentuser, accessToken)
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/me`, {
         method: 'POST',
@@ -128,8 +129,8 @@ const Home = () => {
           'User-Agent': 'insomnia/9.2.0'
         },
         body: JSON.stringify({
-          email: currentuser,
-          accessToken: accessToken
+          "email": currentuser,
+          "access_token": accessToken
         }),
       });
 
