@@ -3,6 +3,7 @@ from sqlalchemy import Column, String, Integer, \
                         Text
 from sqlalchemy.orm import relationship, backref
 from extensions import Base, Session
+from tidb_vector.sqlalchemy import VectorType
 
 from datetime import datetime
 import uuid
@@ -232,3 +233,15 @@ class AiMessages(Base):
         with Session() as session:
             session.add(self)
             session.commit()
+
+class Magazines(Base):
+    __tablename__ = 'info_sites'
+    id = Column(Integer, primary_key=True)
+    content = Column(Text)
+    embedding = Column(VectorType(3))
+
+class MagazinesWithIndex(Base):
+    __tablename__ = 'info_sites_with_index'
+    id = Column(Integer, primary_key=True)
+    content = Column(Text)
+    embedding = Column(VectorType(3), comment="hnsw(distance=cosine)")
