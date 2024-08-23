@@ -24,29 +24,20 @@ To install and run Teepon Application locally, follow these steps:
         git clone git@github.com:pathfindermilan/Teepon.git
     ```
 2. **For Back-end**
+   	`Follow the instructions in backend folder from the README.md file`
+3. **For Socket_Server**
+	`Follow the instructions in Socket_server folder from the README.md file`
 
-    ```bash
-        cd backend
-    ```
-3. **Follow the instructions in backend README.md file
-    
 4. **For Front-end**
-    ```bash
-        cd frontend
-    ```
-5. **Install packages**
-    ```bash
-        npm install
-    ```
-6. **Change the env keys**
-    ```bash
-	cp .env.eample .env
-	vi .env
-    ```
-7. **Start the client**
-    ```bash
-        npm run dev
-    ```
+   	`Follow the instructions in frontend folder from the README.md file`
+
+## Port Mapping:
+| Folder        | Port | Deployed                  |
+|---------------|------|---------------------------|
+| backend       | 5001 | https://teepon.tech/      |
+| frontend      | 3000 | https://teepon.online/    |
+| SocketServer  | 5000 | https://teepon.site/      |
+
 
 ## Contributing
 
