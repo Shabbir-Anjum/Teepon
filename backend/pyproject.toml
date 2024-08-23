@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "teepon"
+version = "0.1.0"
+description = "TiDB hackaton"
+authors = ["Teepon Team"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+python-dotenv = "*"
+flask = "*"
+pymongo = "*"
+
+pyyaml="6.0.1"
+spotipy="2.23.0"
+langchain="0.0.315"
+colorama="0.4.6"
+tiktoken="0.5.1"
+openai="0.28.1"
+flask_migrate="*"
+opencage="*"
+gunicorn="*"
+pymysql="*"
+sqlalchemy="*"
+
+exceptiongroup = "*"
+async-timeout = "*"
+poetry="*"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "*"
+pytest = "*"
+pytest-watch = "*"
+model-bakery = "*"
+locust = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
