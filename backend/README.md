@@ -10,7 +10,9 @@ cp .env.example .env
 ```bash
 vi .env
 ```
+
 * Set tidb creds in .env
+* Obtain OPENAI_API_KEY and replace it
 
 ### Install poetry
 ```bash
