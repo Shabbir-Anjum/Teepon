@@ -97,10 +97,15 @@ class MySQLHandler:
     def insert_friend_list_entry(self, friend_list):
         self.session.add(friend_list)
         self.session.commit()
-    def get_friend_outings(self, user_id):
+    def get_friend_outings(self, update_data):
         try:
+            email = update_data['email']
+            user = self.get_user(email)
+            if not user:
+                return jsonify({'error': 'User does not exist'}), 403
+
             friend_outings = self.session.execute(
-                select(FriendList).where(FriendList.user_id == user_id)
+                select(FriendList).where(FriendList.user_id == user.id)
             ).scalars().all()
 
             outing_ids = [friend_outing.outing_id for friend_outing in friend_outings]

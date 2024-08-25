@@ -117,15 +117,18 @@ def users_blueprint():
     def get_all_outings():
         if request.method == 'POST':
             email = request.json.get('email')
-            if not email:
+            if email:
+                update_data = {}
+                if email:
+                    update_data['email'] = email
+
+                try:
+                    response = db.get_friend_outings(update_data)
+                    return response
+                except Exception as e:
+                    return jsonify({"error": str(e)}), 500
+            else:
                 return jsonify({'error': 'Email is required'}), 400
-
-            user = db.get_user(email)
-            if not user or not user.active:
-                return jsonify({'error': 'User not found or inactive'}), 404
-
-            response = db.get_friend_outings(user.id)
-            return response
 
     @main_routes.route('/get-outings/<outing_id>', methods=['GET', 'POST', 'DELETE'])
     def get_outing(outing_id):
