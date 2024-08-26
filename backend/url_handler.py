@@ -105,7 +105,7 @@ class MySQLHandler:
                 return jsonify({'error': 'User does not exist'}), 403
 
             friend_outings = self.session.execute(
-                select(FriendList).where(FriendList.user_id == user.id)
+                select(FriendList).where(FriendList.user_id == User.id)
             ).scalars().all()
 
             outing_ids = [friend_outing.outing_id for friend_outing in friend_outings]
